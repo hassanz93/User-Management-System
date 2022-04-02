@@ -12,9 +12,49 @@
 }
 
 .password-text{
-    width: 550px;
+    width: 540px;
 }
 
 input{
     padding-left: 5px;
 }
+
+
+
+.glyphicon{
+    display: none !important;
+    content: 'Edit' !important;
+}
+
+.tabledit-edit-button{
+    background-color: green !important;
+    width: 55px;
+    height: 30px;
+    content: 'Edit' !important;
+    color: white !important;
+    border-radius: 15px !important;
+    
+}
+
+.tabledit-edit-button::before{
+    content: "Edit" !important;
+}
+
+.tabledit-delete-button{
+    background-color: red !important;
+    width: 55px;
+    height: 30px;
+    content: 'Edit' !important;
+    color: white !important;
+    margin-left: 2px !important;
+    border-radius: 15px !important;
+}
+
+.tabledit-delete-button::before{
+    content: "Delete" !important;
+}
+
+.tabledit-toolbar-column::before{
+    content: "Edit/Delete" !important;
+}
+

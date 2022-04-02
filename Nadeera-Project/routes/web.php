@@ -39,8 +39,7 @@ Route::get('/login_success',[App\Http\Controllers\MemberController::class,'show'
 // Delete user in the Database
 Route::get('click_delete/{id}',[App\Http\Controllers\MemberController::class,'delete_function']);
 
-Route::get('edit-student/{id}', [App\Http\Controllers\MemberController::class, 'edit']);
-Route::put('update-student/{id}', [App\Http\Controllers\MemberController::class, 'update']);
+Route::post('login_success/action', [App\Http\Controllers\MemberController::class, 'action'])->name('tabledit.action');
 
 
 
