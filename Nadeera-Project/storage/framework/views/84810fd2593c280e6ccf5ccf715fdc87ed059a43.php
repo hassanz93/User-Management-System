@@ -1,7 +1,6 @@
 <html>
 <!DOCTYPE html>
 
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,18 +15,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://markcell.github.io/jquery-tabledit/assets/js/tabledit.min.js"></script>
 
-
-
-
   <link rel="stylesheet" href="<?php echo e(url('css/userspage.css')); ?>">
-
 </head>
 
 <body>
   <div class="container box">
     <h3>All Users</h3><br />
-
-
 
     <?php if(isset(Auth::user()->name)): ?>
     <div class="alert alert-danger success-block">
@@ -44,10 +37,10 @@
     <?php endif; ?>
 
     <br />
+
     <form class="validate-form" method="post" action="<?php echo e(route('insert.data')); ?>">
       <?php echo csrf_field(); ?>
       <?php echo e(csrf_field()); ?>
-
 
 
       <p>
@@ -62,7 +55,6 @@
           <th class="userTable-td" scope="col">Name</th>
           <th class="userTable-td" scope="col">Email</th>
           <th class="userTable-td" scope="col">Password</th>
-
         </tr>
         <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $eachuser): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <tr class="userTable-tr">
@@ -70,7 +62,6 @@
           <td class="userTable-td" contenteditable="true"><?php echo e($eachuser['name']); ?></td>
           <td class="userTable-td" contenteditable="true"><?php echo e($eachuser['email']); ?></td>
           <td class="userTable-td" contenteditable="true"><?php echo e($eachuser['password']); ?>></td>
-
         </tr>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -78,12 +69,22 @@
     </form>
 
     <button id="addRows" class="btn btn-info">New</button>
+    
+    <h2>Instructions</h2>
+    <p>1) After login all users in the databse are shown except for the user who logined. </p>
+    <p>2) Clicking the light blue <strong>'New'</strong> button adds a new row where one is able to a add new user. </p>
+    <p>3) Clicking the green <strong>'Edit'</strong> button frames the text boxes and allows editing before
+      confirming by pressing the newly added save button. </p>
+    <p>4) Clicking the red <strong>'Delete'</strong> button reveals a newly added confirm button to approve
+      the process of deleting the user for good.</p>
   </div>
 </body>
 
 </html>
 
 <script>
+  // Jquery onclick to add a new row for adding new user
+
   $(function() {
     $("#addRows").click(function() {
       $("#editable").append(`
@@ -99,7 +100,11 @@
   })
 </script>
 
+
 <script type="text/javascript">
+  //Jquery and Ajax used to help with editing live without the need to refresh or edit in a seperate page.
+  // Also used to edit by identifying the row based on the id of the user
+
   $(document).ready(function() {
 
     $.ajaxSetup({

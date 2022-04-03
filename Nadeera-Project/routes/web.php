@@ -19,27 +19,29 @@ Route::get('/', function () {
     return view('login');
 });
 
-// Users Page (2nd page)
+Route::get('/register', function () {
+    return view('register');
+});
+
+// Users Page (3rd page)
 Route::get('/login_success', function () {
     return view('successlogin');
 });
 
 // logout and go back to login page
-Route::get('/logout',[App\Http\Controllers\usersController::class,'logout']);
+Route::get('/logout', [App\Http\Controllers\usersController::class, 'logout']);
 
 // Add use to Database
-Route::post('/insert_user',[App\Http\Controllers\usersController::class,'insert'])->name('insert.data');
+Route::post('/insert_user', [App\Http\Controllers\usersController::class, 'insert'])->name('insert.data');
 
 // Check if user is logined
-Route::post('/check_login',[App\Http\Controllers\usersController::class,'check_login'])->name('check.login');
+Route::post('/check_login', [App\Http\Controllers\usersController::class, 'check_login'])->name('check.login');
 
 // show all users in the Database
-Route::get('/login_success',[App\Http\Controllers\MemberController::class,'show']);
+Route::get('/login_success', [App\Http\Controllers\MemberController::class, 'show']);
 
 // Delete user in the Database
-Route::get('click_delete/{id}',[App\Http\Controllers\MemberController::class,'delete_function']);
+Route::get('click_delete/{id}', [App\Http\Controllers\MemberController::class, 'delete_function']);
 
+// Edit user in the Database
 Route::post('login_success/action', [App\Http\Controllers\MemberController::class, 'action'])->name('tabledit.action');
-
-
-

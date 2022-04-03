@@ -103,6 +103,19 @@
 
 .login-title{
 	color:#880808 !important;
-	padding-top: 50px;
-	
+	padding-top: 50px;	
+}
+
+.link{
+	margin-top: -25px !important;
+}
+
+.login-special{
+	margin-top: -45px !important;
+}
+
+.error{
+	margin-top: -5px !important;
+	padding-top: 4px !important;
+	padding-bottom: 4px !important;
 }

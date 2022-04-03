@@ -19,8 +19,6 @@ input{
     padding-left: 5px;
 }
 
-
-
 .glyphicon{
     display: none !important;
     content: 'Edit' !important;
@@ -32,8 +30,7 @@ input{
     height: 30px;
     content: 'Edit' !important;
     color: white !important;
-    border-radius: 15px !important;
-    
+    border-radius: 15px !important;  
 }
 
 .tabledit-edit-button::before{
@@ -55,6 +52,6 @@ input{
 }
 
 .tabledit-toolbar-column::before{
-    content: "Edit/Delete" !important;
+    content: "  Edit    Delete" !important;
 }
 

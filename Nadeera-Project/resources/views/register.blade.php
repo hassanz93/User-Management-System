@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="<?php echo e(url('css/login.css')); ?>">
+    <link rel="stylesheet" href="{{url('css/login.css') }}">
 
 
 </head>
@@ -24,21 +24,19 @@
         <div class="login_form_container">
             <div class="left">
 
-                <?php if(Auth::check()): ?>
+                @if(Auth::check())
                 <script>
                     window.location = "/login_success";
                 </script>
-                <?php endif; ?>
+                @endif
 
-                <form class="form_container validate-form" method="post" action="<?php echo e(route('insert.data')); ?>">
-                    <?php echo e(csrf_field()); ?>
-
+                <form class="form_container validate-form" method="post" action="{{ route('insert.data') }}">
+                    {{ csrf_field() }}
 
                     <p>
-                        <?php if($success=Session::get('success')): ?>
-                        <?php echo e($success); ?>
-
-                        <?php endif; ?>
+                        @if($success=Session::get('success'))
+                        {{ $success }}
+                        @endif
                     </p>
 
 
@@ -49,10 +47,9 @@
                     </div>
 
                     <h4 style="color:red;">
-                        <?php if($errors->has('name')): ?>
-                        <?php echo e($errors->first('name')); ?>
-
-                        <?php endif; ?>
+                        @if($errors->has('name'))
+                        {{ $errors->first('name') }}
+                        @endif
                         <h4>
 
                             <div class="validate-input">
@@ -60,10 +57,9 @@
                             </div>
 
                             <h4 style="color:red;">
-                                <?php if($errors->has('email')): ?>
-                                <?php echo e($errors->first('email')); ?>
-
-                                <?php endif; ?>
+                                @if($errors->has('email'))
+                                {{ $errors->first('email') }}
+                                @endif
                             </h4>
 
                             <div class="validate-input">
@@ -71,30 +67,27 @@
                             </div>
 
                             <h4 style="color:red;">
-                                <?php if($errors->has('password')): ?>
-                                <?php echo e($errors->first('password')); ?>
-
-                                <?php endif; ?>
+                                @if($errors->has('password'))
+                                {{ $errors->first('password') }}
+                                @endif
                             </h4>
 
                             <!-- <div class="validate-input">
                                 <input type="password" placeholder="Retype password" name="password_confirmation" required   class="input">
                             </div>
                             <h4 style="color:red;">
-                                <?php if($errors->has('password')): ?>
-                                <?php echo e($errors->first('password')); ?>
-
-                                <?php endif; ?>
+                                @if($errors->has('password'))
+                                {{ $errors->first('password') }}
+                                @endif
                             </h4> -->
                            
 
                             <input type="submit" class="red_btn" value="Register"></button>
 
                             <h3 style="color:red;">
-                                <?php if($errors=Session::get('error')): ?>
-                                <?php echo e($errors); ?>
-
-                                <?php endif; ?>
+                                @if($errors=Session::get('error'))
+                                {{ $errors }}
+                                @endif
                             </h3>
                 </form>
                 <a  class= "link" href="/">Existing User</a>
@@ -103,4 +96,4 @@
     </div>
 </body>
 
-</html><?php /**PATH C:\Users\hassa\Desktop\laravel\Nadeera-Project\resources\views/register.blade.php ENDPATH**/ ?>
+</html>

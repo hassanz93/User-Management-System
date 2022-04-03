@@ -32,14 +32,13 @@
                         @endif
                     </p>
 
-
                     <h1 class="login-title">Login to Your Account</h1>
 
                     <div class="validate-input">
                     <input type="email" placeholder="Email" name="email" required class="input " >
                     </div>
 
-                    <h4 style="color:red;">
+                    <h4 style="color:red;" class="error">
                         @if($errors->has('email'))
                         {{ $errors->first('email') }}
                         @endif
@@ -49,21 +48,22 @@
                     <input type="password" placeholder="Password" name="password" required class="input">
                     </div>
 
-                    <h4 style="color:red;">
+                    <h4 style="color:red;" class="error">
                         @if($errors->has('password'))
                         {{ $errors->first('password') }}
                         @endif
                     </h4>
 
-                    <input type="submit" class="red_btn" value="Login"></button>
-
-                    <h3 style="color:red;">
+                    <h3 style="color:red;" class="error">
                         @if($errors=Session::get('error'))
                         {{ $errors }}
                         @endif
                     </h3>
 
+                    <input type="submit" class="red_btn" value="Login"></button>
+ 
                 </form>
+                <a class= "link1" href="/register">New User</a>
             </div>
         </div>
     </div>
